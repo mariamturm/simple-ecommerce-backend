@@ -1,5 +1,6 @@
 package com.example.ecommerce.model;
 
+//represents product + quantity in cart
 public class CartItem {
 
     private Long productId; //using Long instead of long because we need Id to be nullable and with long it is impossible
