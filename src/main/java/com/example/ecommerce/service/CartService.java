@@ -3,6 +3,7 @@ package com.example.ecommerce.service;
 import com.example.ecommerce.model.CartItem;
 import com.example.ecommerce.model.Product;
 import com.example.ecommerce.model.ShoppingCart;
+import com.example.ecommerce.exception.InsufficientStockException;
 import com.example.ecommerce.service.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class CartService {
         Product product = productService.getProductById(productId);
 
         if(!productService.hasEnoughStock(productId, quantity)){
-            throw new InsufficientStockExceprion("Not enough stock for product: " + product.getName());
+            throw new InsufficientStockException("Not enough stock for product: " + product.getName());
         }
 
         for(CartItem item : cart.getItems()){
